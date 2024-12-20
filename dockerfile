@@ -1,8 +1,10 @@
 # Use the CentOS base image
 FROM centos:latest
 
-# Install httpd (Apache HTTP server)
-RUN yum -y update && \
+# Update the repository URLs and install httpd
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*.repo && \
+    sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-*.repo && \
+    yum -y update && \
     yum -y install httpd && \
     yum clean all
 
