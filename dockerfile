@@ -12,7 +12,7 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*.repo && \
 WORKDIR /var/www/html
 
 # Create the index.html file with content
-RUN echo "sandeep yadav1" > /var/www/html/index.html
+RUN echo "sandeep yadav2" > /var/www/html/index.html
 
 # Expose port 80
 EXPOSE 80
